@@ -2,4 +2,5 @@
 
 1. You can find all of my development-related work, from the most fundamental to the most advanced, there.
 
+<<<<<<< HEAD
 testing is too old
