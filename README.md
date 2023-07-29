@@ -1,6 +1,4 @@
 # C IS THE MOTHER OF ALL MODERN LANGUAGE
-
-1. You can find all of my development-related work, from the most fundamental to the most advanced, there.
-
-<<<<<<< HEAD
-testing is too old
+=======
+1. You can find all of my development-related work, from the most fundamental to the most advanced, here.
+>>>>>>> Testing
