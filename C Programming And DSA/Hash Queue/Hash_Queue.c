@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <time.h>
 
 #define TRUE 1
 #define FALSE -1
@@ -55,26 +56,38 @@ static void destroy_list(list_t** list);
 int main(void){
     hash_queue_t* hash_queue = NULL;
     status_t status;
+    key_t key[KEY];
 
     hash_queue = create_hash_queue(BUCKET_SIZE);
+    srand(time(0));
 
     for(index_t index = 0; index < KEY; ++index)
-        add_key(hash_queue, index);
+        key[index] = rand();
+
+    for(index_t index = 0; index < KEY; ++index)
+        add_key(hash_queue, key[index]);
 
     show_hash_queue(hash_queue);
 
     printf("\nHash Queue Data Searching ...\n");
-    for(index_t index = 0; index < KEY+1; ++index){
-        status = search_key(hash_queue, index);
+    for(index_t index = 0; index < KEY; ++index){
+        status = search_key(hash_queue, key[index]);
         if(status == TRUE)
-            printf("KEY = [%llu] is present in Hash_Queue\n", index);
+            printf("KEY = [%llu] is present in Hash_Queue\n", key[index]);
         else    
-            printf("KEY = [%llu] is not present in Hash_Queue\n", index);
+            printf("KEY = [%llu] is not present in Hash_Queue\n", key);
+    }
+
+    for(index_t index = 0; index < KEY; ++index){
+        key_t key = rand();
+        status = search_key(hash_queue, key);
+        if(status == TRUE)
+            printf("KEY = [%llu] is Rare in Hash_Queue\n", key);
     }
 
     printf("\nHash Queue Node Removing..\n");
-    for(index_t index = 0; index < KEY+1; ++index){
-        status = remove_key(hash_queue, index);
+    for(index_t index = 0; index < KEY; ++index){
+        status = remove_key(hash_queue, key[index]);
 
         if(status == TRUE)
             printf("KEY = [%llu] Removed\n", index);
@@ -118,6 +131,7 @@ void destroy_hash_queue(hash_queue_t* hash_queue){
     for(index_t index = 0; index < hash_queue->bucket_size; ++index){
         destroy_list(&hash_queue->p_list_array[index]);
     }
+    hash_queue->p_list_array = NULL;
 }
 static list_t* find_search_node(list_t* list, key_t key){
     list_t* run = NULL;
@@ -204,7 +218,7 @@ index_t hash(key_t key, size_t bucket_size){
 }
 void show_hash_queue(hash_queue_t* hash_queue){
 
-    if(*(hash_queue->p_list_array) == NULL){
+    if((hash_queue->p_list_array) == NULL){
         puts("list is empty");
         return;
     }
