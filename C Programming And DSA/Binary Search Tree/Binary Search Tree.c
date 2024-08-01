@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
+#include <time.h>
 
 #define SUCCESS 0
 #define FAILED -1
@@ -8,6 +9,7 @@
 #define BST_NO_SUCESSOR 2
 #define INVALID_BST_DATA 3
 #define BST_NO_PREDECESSOR 4
+#define TEST_MAX 100000
 
 typedef struct bst bst_t;
 typedef long long data_t;
@@ -38,6 +40,8 @@ void postorder(bst_t* p_bst);
 void destroy_bst(bst_t* p_bst);
 status_t get_inorder_successor(bst_t* p_bst, data_t s_data, data_t* p_succ_data);
 status_t get_inorder_predecessor(bst_t* p_bst, data_t s_data, data_t* p_pre_data);
+
+
 //Auxiliary Routines
 static void inorder_nodelevel(node* root_node); 
 static void preorder_nodelevel(node* root_node); 
@@ -45,45 +49,74 @@ static void postorder_nodelevel(node* root_node);
 void destroy_list(node** p_node);
 static void destroy_nodelevel(node* root_node);
 static node* inorder_successor(node* e_node);
+static node* search_node(node* root_node, data_t s_data);
+
 
 int main(void){
-    data_t arr[] = {100, 50, 150, 25, 175, 65, 130, 5};
+    data_t* arr = NULL;
+    arr = (data_t*)malloc(TEST_MAX * sizeof(data_t));
+
+    srand(time(0));
+    for(index_t index = 0; index < TEST_MAX; ++index){
+        arr[index] = rand();
+    }
+
     bst_t* p_bst = NULL;
     data_t p_succ_data;
     data_t p_pre_data;
     status_t status;
 
     p_bst = create_bst();
-    for(index_t index = 0; index < sizeof(arr) / sizeof(arr[0]); ++index){
+    for(index_t index = 0; index < TEST_MAX; ++index){
         insert(p_bst, arr[index]);
         }
+    puts("inserting completed");
+    // puts("inorder");
+    // inorder(p_bst);
+    // puts("preorder");
+    // preorder(p_bst);
+    // puts("postorder");
+    // postorder(p_bst);
 
-    puts("inorder");
-    inorder(p_bst);
-    puts("preorder");
-    preorder(p_bst);
-    puts("postorder");
-    postorder(p_bst);
-    destroy_bst(p_bst);
-
-    for(index_t index = 0; index < sizeof(arr) / sizeof(arr[0]); ++index){
+    for(index_t index = 0; index < TEST_MAX; ++index){
         status = get_inorder_successor(p_bst, index , &p_succ_data);
-        if(status != BST_NO_SUCESSOR)
-            printf("NO SUCESSOR PRESENT OF %llu\n", p_succ_data);
+
+        if(status == BST_NO_SUCESSOR)
+            printf("NO SUCESSOR PRESENT OF %llu\n", index);
+        else if (status == INVALID_BST_DATA)
+            printf("INVALID DATA %llu\n", index);
         else
-            printf("SUCESSOR = %llu\n", p_succ_data);
+            printf("SUCESSOR OF %llu = %llu\n", index , p_succ_data);
         }
     
-    for(index_t index = 0; index < sizeof(arr) / sizeof(arr[0]); ++index){
+    for(index_t index = 0; index < TEST_MAX ; ++index){
         status = get_inorder_predecessor(p_bst, index, &p_pre_data);
-        if(status != BST_NO_PREDECESSOR)
-            printf("NO PREDECESSOR PRESENT OF %llu\n", p_pre_data);
-        else
-            printf("PREDECESSOR = %llu\n", p_pre_data);
-        }   
 
+        if(status == BST_NO_PREDECESSOR)
+            printf("NO PREDECESSOR PRESENT OF %llu\n", index);
+        else if (status == INVALID_BST_DATA)
+            printf("INVALID DATA %llu\n", index);
+        else
+            printf("PREDECESSOR OF %llu = %llu\n", index , p_pre_data);
+        }   
     puts("done");
+    destroy_bst(p_bst);
     return (0);
+}
+
+static node* search_node(node* root_node, data_t s_data){
+
+    node* run = NULL;
+    run = root_node;
+    while(run != NULL){
+        if(s_data == run->data)
+            break;
+        else if (s_data < run->data)
+            run = run->left;
+        else
+            run = run->right;
+    }
+    return run;
 }
 node* inorder_successor(node* e_node){
 
@@ -133,13 +166,17 @@ status_t get_inorder_predecessor(bst_t* p_bst, data_t s_data, data_t* p_succ_dat
     node* e_node = NULL;
     node* e_pre_node = NULL;
 
-    e_node = (root_node, s_data);
+    root_node = p_bst->root_node;
+    e_node = search_node(root_node, s_data);
     if(e_node == NULL)
         return (INVALID_BST_DATA);
 
     e_pre_node = inorder_predecessor(e_node);
-    if(e_node == NULL)
-        return (BST_NO_PREDECESSOR);   
+    if(e_pre_node == NULL)
+        return (BST_NO_PREDECESSOR);  
+
+    *p_succ_data = e_pre_node->data;
+    return(SUCCESS);
 }
 status_t get_inorder_successor(bst_t* p_bst, data_t s_data, data_t* p_succ_data){
 
@@ -156,7 +193,7 @@ status_t get_inorder_successor(bst_t* p_bst, data_t s_data, data_t* p_succ_data)
     if(e_succ_node == NULL)
         return (BST_NO_SUCESSOR);
 
-    *p_succ_data = e_node->data;
+    *p_succ_data = e_succ_node->data;
     return(SUCCESS);
 }
 
