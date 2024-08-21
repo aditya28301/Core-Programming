@@ -1,0 +1,3 @@
+Hello,
+
+this is c programme to copy a file form source to destination.
