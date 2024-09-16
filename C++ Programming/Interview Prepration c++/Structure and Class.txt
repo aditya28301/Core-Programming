@@ -1,0 +1,10 @@
+What is structure?
+->struct is abbreviation of information structure.
+tyala tag of the strcuture mnhtla jata. and tyachya member asto tyala memeber che type mhntat e.g(Day, month, year)
+
+What is differnce between class and structure
+->structure by defatult are public but class bydefault is private it means when you
+ not write the access sepcifier class will work as private.
+structure we can define or decleare a function but in class we can define memeber function with access specifier.
+
+standalone, c-Like, Global function => Gloval function not required any qualified access

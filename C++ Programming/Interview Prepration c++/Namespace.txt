@@ -1,0 +1,15 @@
+What does namespace statment do?
+->  
+1. Namespace statment is used for creating named scope.
+2. We can define one varaible at a time if we change the scope we can define this same variable again.
+
+What does namespace is used for?
+->Global namespace polution avoid karnysathi namespace satement waprla jata.
+
+What is global namespace polutions means?
+-> eka scope madhe two variable name asna.global variable are redefining multiple times can occured redefination error
+
+What is solution for that?
+->
+jo global scope wegwglya file madhe ek ahe to wegweg lya namescoped madhe split kara.
+tyane global namespace pollution resolved hoil.

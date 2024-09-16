@@ -1,0 +1,43 @@
+Commonly Asked C++ Versions:
+C++11 (most frequently asked):
+
+Smart Pointers (std::unique_ptr, std::shared_ptr, std::weak_ptr)
+Move Semantics and Rvalue References
+Lambda Expressions
+Range-based for loops
+Auto keyword
+Constexpr for compile-time constants
+Threading and Concurrency (std::thread, std::mutex, etc.)
+nullptr (replaces NULL)
+Uniform Initialization and Initializer Lists
+C++14:
+
+Improvements to lambda expressions (like generic lambdas)
+std::make_unique (a safe way to create unique_ptr)
+Relaxed rules for constexpr functions
+Return type deduction for functions
+C++17:
+
+std::optional, std::variant, and std::any for type-safe data
+Structured bindings
+If constexpr for compile-time branching
+std::filesystem for file system operations
+Parallel algorithms support in the STL
+constexpr improvements
+Inline variables
+C++20 (more advanced roles may ask about this):
+
+Concepts for constraining templates
+Ranges library for easier range-based algorithms
+Coroutines for asynchronous programming
+Modules for improved compilation times
+Three-way comparison operator (<=>)
+constexpr virtual functions
+Calendar and time library
+Focus Areas in Interviews:
+C++ Standard Library (STL): Extensive knowledge of containers, algorithms, and smart pointers.
+Memory Management: Understanding of dynamic memory allocation, RAII, and modern techniques like move semantics.
+Object-Oriented Programming (OOP): Class design, inheritance, polymorphism, encapsulation, and abstraction.
+Concurrency: Knowledge of multi-threading and synchronization primitives from C++11 onwards.
+Modern C++: Expect questions on features from C++11 to C++20, depending on the company's tech stack.
+Would you like a detailed explanation of any specific C++ features to prepare for your interview?
