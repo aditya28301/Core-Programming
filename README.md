@@ -27,8 +27,12 @@ This repository serves as a one-stop hub for:
     - 🛠️ **System programming** in C.
     - 🔗 Implementation of **COM interfaces**.
     - 🌐 Real-time applications using **socket programming**.
-  
----
+
+📞 Contact
+Feel free to reach out for any inquiries or collaborations:
+📧 Email: aditya28301@gmail.com
+📱 Phone: +91-9876543210
+💼 LinkedIn: Your LinkedIn Profile
 
 ## 🔧 **How to Use**
 To get started with any of the examples or projects:
