@@ -28,11 +28,11 @@ This repository serves as a one-stop hub for:
     - 🔗 Implementation of **COM interfaces**.
     - 🌐 Real-time applications using **socket programming**.
 
-📞 Contact
+4. **Contact**
 Feel free to reach out for any inquiries or collaborations:
-📧 Email: aditya28301@gmail.com
-📱 Phone: +91-9876543210
-💼 LinkedIn: Your LinkedIn Profile
+- 📧 Email: aditya28301@gmail.com.
+- 📱 Phone: +91-9876543210.
+- 💼 LinkedIn: https://www.linkedin.com/in/aditya-darekar-318a26143/
 
 ## 🔧 **How to Use**
 To get started with any of the examples or projects:
