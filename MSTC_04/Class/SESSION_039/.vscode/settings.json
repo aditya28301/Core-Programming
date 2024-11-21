@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "HelloWin.C": "cpp",
+        "MessageBox.C": "cpp"
+    }
+}
