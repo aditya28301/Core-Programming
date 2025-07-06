@@ -14,7 +14,7 @@
 
 
         std::string long_string;
-        int length = 100000000000000;  // Desired length of the string
+        int length = 100000000;  // Desired length of the string
 
         for (int i = 0; i < length; ++i) {
             long_string += characters[rand() % characters.size()];

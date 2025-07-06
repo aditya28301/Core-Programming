@@ -1,0 +1,8 @@
+Types of Operating system
+1. Single task operating system.
+2. multitasking operating system.
+	a. timesharing opearting system.
+	b. coperative operating system.
+	c. preemptive opearting system.
+	
+3.

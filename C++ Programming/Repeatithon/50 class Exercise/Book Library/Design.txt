@@ -1,0 +1,28 @@
+Book Class:
+    1. Name
+    2. Book Description
+    3. Payment Details
+    4. Address Details  
+    5. Product verfication Details
+    6. Ratings
+    7. Date
+
+Payment Details:
+    1.Kindle 
+    2.Paperback
+    3.Hardcover
+
+Address Details:
+    1.Seller Address
+    2.Mode of delivery
+
+Product verification Details:    
+    1. ISBN Number
+    2. Publisher Name   
+    3. Edition
+
+Date:
+    1. Year
+    2. Month
+    3. Day
+

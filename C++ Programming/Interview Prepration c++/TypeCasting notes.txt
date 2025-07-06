@@ -1,0 +1,13 @@
+Explicit typecasting
+----------------------------------
+1. Explicting typecasting like
+float num = 20.0
+int num_extract = (int)num;
+in c++ static_cast<int>(f_num_2);
+
+2. What is typecasting
+------------------------------------------
+-> OverRiding the infered type expression to get different meaning of the opeartor
+-> Desired type chya context madhla operator cha meaning he apply karun ghenysathi aplya expression cha infered type desire type madhe overRide karne hyala typecasting mhntat.
+
+3.

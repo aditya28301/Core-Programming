@@ -1,0 +1,57 @@
+*Linux system programming File Handling*
+
+/* Linux specific Header file explanation */
+1.Additional Header file :
+	a.linux specific header file
+	b.WSL is available on windows
+	c.Some header file can be accessible to wsl but it is specific to linux os only.
+	d. we use system level function in Win32 Api. for that calling function required  
+	some lib "user32.lib", "gdi32.lib", "kernel32.lib" so same as we have function in linux which we called as system calls. 
+
+2.Dev Enviroment :
+	a.Lib c file madhe sagla implemention asta system call kase karyche tyache
+	b.Developement enviroment install karto utils , libc , bin_utils, and libc_developement te install kelywar 
+	c.Assembler, linker, viewer, objdump install hoto
+	d. GCC package ne compiler install hoto.
+	e.Symbolic , constant , typedef
+
+3. Library files explnation
+	a.#include <errno.h>
+		Extern int err_no; define in libc lib file.
+	b. Error number variable is number give to the error.
+	c System call means its implmented by kernel and call by the applicaton programmer.
+	d. *How to see all system call
+		/usr/include/x86_64-linux-gnu/asm/unistd_64.h ->Linux operating system call
+
+4.System call
+	a. System call return integer or void*
+		failure int = - 1, void* = NULL;
+	b.Libc lib file drive through system call.
+	b. When system call get failed os provide the error in global err_no variable it will put the number. 
+	if we want to get the error string from that the error strerror(int_err_number) then you can put the reason
+
+5. File Handling system call
+	a. When we want to perform some operation on file.
+	b. Kenerl should know the meta data of that file.
+	c. When we call the open system call kernel locate the meta data of that file inode and get into the kernel address space 
+	d. now we dont want to give this file access to everyone so it return integer value if it -1 it mean system called get failed unable to open file.
+	e.while closing the file we need to provide that integer number means file description number.
+	
+6. File Mode
+	a. O_RDONLY - Mala he file only read karnysathi open karychi ahe.
+	b.	O_WRONLY - Mala he file fkt right karnysathi open karychi ahe.
+	c.Advance Flag
+		a.	O_NOCTTY
+		b.	O_NONBLOCK
+		c.	O_ASYNC
+		d.	O_DSYNC
+		e.	O_EXCL
+	d. Open is a variadic system call.
+	e.For Open system call these From 3 mode is 1 mod is compulsory 
+		a. O_RDONLY
+		b. O_WRONLY
+		c. O_RDWR
+	Additionally, if you provided O_CREATE then third parameter is compulsory. S_I(RWX)
+		
+	
+

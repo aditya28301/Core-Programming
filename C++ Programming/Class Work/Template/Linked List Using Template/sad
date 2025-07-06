@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <string.h>
+
+#define POOL_SIZE 1024 * 1024  // 1MB
+
+// Block metadata structure
+struct Block {
+    size_t size;        // size of usable memory
+    int free;           // block status: 1=free, 0=used
+    struct Block* next; // pointer to next block
+};
+
+// Memory pool (1MB)
+char memory_pool[POOL_SIZE];
+
+// Head of the linked list of blocks
+struct Block* free_list = NULL;
+
+// Initialize memory allocator
+void initialize() {
+    free_list = (struct Block*)memory_pool;
+    free_list->size = POOL_SIZE - sizeof(struct Block);
+    free_list->free = 1;
+    free_list->next = NULL;
+}
+
+// Custom malloc function
+void* my_malloc(size_t requested_size) {
+    struct Block* current = free_list;
+
+    while (current != NULL) {
+        if (current->free && current->size >= requested_size) {
+
+            // If there's enough extra space, split the block
+            if (current->size > requested_size + sizeof(struct Block)) {
+                struct Block* new_block = (struct Block*)((char*)current + sizeof(struct Block) + requested_size);
+                new_block->size = current->size - requested_size - sizeof(struct Block);
+                new_block->free = 1;
+                new_block->next = current->next;
+
+                current->size = requested_size;
+                current->next = new_block;
+            }
+
+            current->free = 0;
+
+            // Return pointer to usable memory (just after the header)
+            return (char*)current + sizeof(struct Block);
+        }
+
+        current = current->next;
+    }
+
+    // If no suitable block found
+    return NULL;
+}
+
+// Print memory blocks status
+void print_blocks() {
+    struct Block* current = free_list;
+    int i = 1;
+
+    while (current != NULL) {
+        printf("Block %d: size=%zu, free=%s\n", i, current->size, current->free ? "Yes" : "No");
+        current = current->next;
+        i++;
+    }
+}
+
+int main() {
+    initialize();  // initialize memory pool
+
+    printf("Initial memory blocks:\n");
+    print_blocks();
+
+    // Allocate 200 bytes
+    void* ptr = my_malloc(200); 
+    if (ptr != NULL) {
+        printf("\nAfter allocating 200 bytes:\n");
+        print_blocks();
+    } else {
+        printf("Allocation failed!\n");
+    }
+
+    return 0;
+}

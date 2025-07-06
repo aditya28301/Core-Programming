@@ -13,3 +13,4 @@ What is solution for that?
 ->
 jo global scope wegwglya file madhe ek ahe to wegweg lya namescoped madhe split kara.
 tyane global namespace pollution resolved hoil.
+

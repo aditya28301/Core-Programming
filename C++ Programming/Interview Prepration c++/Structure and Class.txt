@@ -8,3 +8,4 @@ What is differnce between class and structure
 structure we can define or decleare a function but in class we can define memeber function with access specifier.
 
 standalone, c-Like, Global function => Gloval function not required any qualified access
+

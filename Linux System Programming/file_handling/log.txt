@@ -1,0 +1,11 @@
+[Sun Jun 29 17:43:59 2025] START: Copying 'source_file.txt' to 'destination_file.txt' line by line
+[Sun Jun 29 17:43:59 2025] LINE 1: Copied "Hello All,"
+[Sun Jun 29 17:44:01 2025] LINE 2: Copied "this is source file and i am copying this file content,"
+[Sun Jun 29 17:44:03 2025] LINE 3: Copied "first log 	-- data"
+[Sun Jun 29 17:44:05 2025] LINE 4: Copied "second log 	-- data"
+[Sun Jun 29 17:44:07 2025] LINE 5: Copied "third log 	-- data"
+[Sun Jun 29 17:44:09 2025] LINE 6: Copied "fourth log	-- data"
+[Sun Jun 29 17:44:11 2025] LINE 7: Copied "fifth log 	-- data"
+[Sun Jun 29 17:44:13 2025] LINE 8: Copied "sixth log	-- data"
+[Sun Jun 29 17:44:15 2025] LINE 9: Copied "End of the file reached."
+[Sun Jun 29 17:44:15 2025] COMPLETE: Successfully copied 9 lines

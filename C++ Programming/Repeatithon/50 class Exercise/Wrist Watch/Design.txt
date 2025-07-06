@@ -1,0 +1,32 @@
+*Watch:
+    1.Watch name.
+    2.watch rating.
+    3.Technial Details
+    4.Payment Details.
+    5.Address Details
+    6.Product Details
+    7.order status;
+
+*Technical Details:
+    1.Operating system.
+    2.Special features.
+    3.Connectivity technology.
+    4.Wireless communication medium
+    5.Batter cell composition.
+    6.Product Description
+
+*Payment Details.
+    1.Current Price.
+    2.Mode of payment option.
+    3.Offers.
+    4.payment Status.
+
+*Address Details.
+    1.Seller Address
+    2.Seller name
+    3.Seller ISBN number
+
+*Product Details:
+    1.Package Dimension.
+    2.Resolution.
+    3.Display

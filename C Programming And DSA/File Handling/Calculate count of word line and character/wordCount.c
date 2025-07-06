@@ -7,6 +7,7 @@ status_t wordCount(int count, char* string[]){
 	size_t word = 0;
 	size_t line = 0;
 	size_t character = 0;
+	size_t Total = 0;
 
 	printf("LINE\t\tWORD\t\tCHAR\n");
 	puts("------\t\t----\t\t----");
@@ -26,10 +27,12 @@ status_t wordCount(int count, char* string[]){
 			fileCount(buffer, &word, &line, &character);
 			memset(buffer, 0, BUFFER_SIZE);
 		}
+		Total+= line;
 		printf("%zu\t\t%zu\t\t%zu\n", line, word, character);
 		fclose(file);
 		file = NULL;
 	}
+	printf("Total lines are = %llu\n", Total);
 	return (SUCCESS);
 }
 
